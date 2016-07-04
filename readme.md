@@ -1,25 +1,34 @@
 <!--
+Created By: Alex White
 Market: SF
+Adapted By: Zeb Girouard
+Market: DEN
 -->
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
+
+<!--9:00 10 minutes -->
+
+<!--Hook: So let's think back to GeoQuakes and all those earthquakes we had to parse.  How many did we get back?  So we only had to grab that data a few times to test.  What would happen if we wanted to grab that data 4,000 times a day?  How would you feel if I asked you for your GitHub link to the homework 4,000 times a day?  Raise your hand if that would piss you off.  OK, so instead of that, maybe we could just ask once, save it, and then check it whenever we need it.  OK, so I don't check your HW 4,000 times a day, but websites can check things much more than that.  We've talked about localStorage as a way to save things locally, but if we go to a different browser or computer, we lose that, and I certainly don't want to store several hundred earthquakes in my browser. This is where Databases come in.  And specifically, today we'll be looking at MongoDB. -->
 
 # MongoDB
 
 ## Why is this important?
 *This workshop is important because:*
-- As of July 2015, MongoDB is the fourth most popular type of database management system, and the most popular for document stores.
+- As of June 2016, MongoDB is the fourth most popular type of database management system, and the most popular for document stores.
 - *aside*: [The top five](http://db-engines.com/en/ranking).
 - MongoDB uses a JSON-like data structure (called BSON or Binary JSON) so it integrates easily into JavaScript Applications
 
 ## What are the objectives?
 *After this workshop, developers will be able to:*
-- Setup local mongo db server
-- CRUD documents using mongo CLI
+- **Set up** local mongo db server
+- **Perform** CRUD operations on documents using mongo CLI
 
 ## Where should we be now?
 *Before this workshop, developers should already be able to:*
-- Run Node in the console
+- **Run** Node in the console
+
+<!--9:10 5 minutes -->
 
 ## Framing
 
@@ -28,7 +37,9 @@ Market: SF
 - High Availability
 - Automatic Scaling
 
-> Later in the course we will learn about relational databases, which use join-tables & foreign keys in relational databases to query our database in complex ways. NoSQL databases are an alternative that can be great for less complex databases. Because NoSQL databases are structured more simply, applications can read and write to them faster.
+> Later in the course we will learn about relational databases, which use join-tables & foreign keys to query our database in complex ways. NoSQL databases are an alternative that can be great for less complex databases. Because NoSQL databases are structured more simply, applications can read and write to them faster.
+
+<!-- 9:15 10 minutes -->
 
 ## Documents
 
@@ -51,7 +62,7 @@ Lets take a look of what a MongoDB _document_ may look like:
 }
 ```
 
-__What does this data structure remind you of?__ JSON!
+<!-- CFU: [Stop-and-Jot] What does this data structure remind you of? JSON! -->
 
 A MongoDB _document_ is very much like JSON, except it is stored in the database in a format known as _BSON_ (think - _Binary JSON_).
 
@@ -59,7 +70,7 @@ _BSON_ basically extends _JSON_ with additional data types, such as __ObjectID__
 
 #### The Document *_id*
 
-The *_id* is a special field represents the document's _primary key_ and will always be listed as the first field. It must be unique.
+The *_id* is a special field that represents the document's _primary key_ and will always be listed as the first field. It must be unique.
 
 We can explicitly set the *_id* like this:
 
@@ -91,6 +102,7 @@ In MongoDB, we often _embed_ related data in a single document, you'll see an ex
 
 The supporters of MongoDB highlight the lack of table joins as a performance advantage since joins are expensive in terms of computer processing.
 
+<!-- 9:25 10 minute -->
 
 ## Installing, Creating a DB, and Inserting Documents
 
@@ -119,7 +131,7 @@ Press `control-c` to stop the engine.
 
 MongoDB installs with a client app, a JavaScript-based shell, that allows us to interact with MongoDB directly.
 
-Start the app in terminal by typing `mongo`. If you got an error, check if `mongod` is running in the background.
+Start the app in terminal by typing `mongo`. If you got an error, make sure `mongod` is running in the background.
 
 The mongo interface will load and change the prompt will change to `>`.
 
@@ -159,6 +171,7 @@ Common Mistake:
 `show dbs`
 > note we don't see restaurants listed. It isn't until we add a document to our database does it list the DB in `show dbs`
 
+<!--9:35 10 minutes -->
 ## Create a record
 
 ### Insert
@@ -206,6 +219,8 @@ New Record:
 New collection:
 - If you attempt to add documents to a collection that does not exist, MongoDB will create the collection for you.
 
+<!-- 9:45 5 minutes -->
+
 ## Dropping a Database
 
 ```
@@ -214,6 +229,8 @@ db.dropDatabase()
 ```
 
 Drops the **current** database.
+
+<!-- 9:50 10 minutes -->
 
 ### Exercise: Add a few more restaurants.
 
@@ -249,7 +266,9 @@ db.restaurants.insert([
 db.restaurants.count()
 ```
 
-#### Find by Conditions
+<!-- 10:00 5 minutes -->
+
+### Find by Conditions
 
 Key: Value pairs
 
@@ -259,6 +278,8 @@ db.restaurants.find({"address.zipcode": 20001});
 ```
 
 >Note: that we can search for nested data, such as the `address.zipcode` by using a string as the key.
+
+<!-- 10:05 5 minutes -->
 
 ## Update/Delete
 
@@ -281,7 +302,8 @@ Verify:
 db.restaurants.find()
 ```
 
-#### Delete a document
+<!--10:10 5 minutes -->
+### Delete a document
 
 ```js
 db.restaurants.remove({ name: "Cookies Corner" })
