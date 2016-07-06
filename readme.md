@@ -186,7 +186,7 @@ db.restaurants.insert(
          street : "1970 2nd St NW",
          zipcode : 20001,
       },
-      yelp: "http://www.yelp.com/biz/cookies-corner-washington",
+      yelp: "http://www.yelp.com/biz/cookies-corner-washington"
 });
 ```
 
