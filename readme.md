@@ -219,18 +219,10 @@ New Record:
 New collection:
 - If you attempt to add documents to a collection that does not exist, MongoDB will create the collection for you.
 
-<!-- 9:45 5 minutes -->
+Challenge:
+Create your own restaurants DB and insert your favorite restaurant into it.  Make sure you can see the new restaurant and the DB in your mongo console.
 
-## Dropping a Database
-
-```
-use milk-n-cookies
-db.dropDatabase()
-```
-
-Drops the **current** database.
-
-<!-- 9:50 10 minutes -->
+<!-- 9:45 10 minutes -->
 
 ### Exercise: Add a few more restaurants.
 
@@ -266,7 +258,7 @@ db.restaurants.insert([
 db.restaurants.count()
 ```
 
-<!-- 10:00 5 minutes -->
+<!-- 9:55 5 minutes -->
 
 ### Find by Conditions
 
@@ -279,7 +271,10 @@ db.restaurants.find({"address.zipcode": 20001});
 
 >Note: that we can search for nested data, such as the `address.zipcode` by using a string as the key.
 
-<!-- 10:05 5 minutes -->
+Challenge:
+Search for matching restaurants by *all* the properties in your restaurant documents.
+
+<!-- 10:00 5 minutes -->
 
 ## Update/Delete
 
@@ -302,7 +297,10 @@ Verify:
 db.restaurants.find()
 ```
 
-<!--10:10 5 minutes -->
+Challenge:
+Update one of your restaurants and verify it has changed in the mongo console.
+
+<!--10:05 5 minutes -->
 ### Delete a document
 
 ```js
@@ -310,6 +308,23 @@ db.restaurants.remove({ name: "Cookies Corner" })
 ```
 
 > Note: this will remove all restaurants with the name `"Cookies Corner"`
+
+Challenge:
+Delete one of your restaurants and verify it has been removed in the mongo console.
+
+<!-- 10:10 5 minutes -->
+
+## Dropping a Database
+
+```
+use milk-n-cookies
+db.dropDatabase()
+```
+
+Drops the **current** database.
+
+Challenge:
+Drop your restaurants DB.  Make sure you can't see it anymore in the mongo console.
 
 ## Closing Thoughts
 - MongoDB is a popular open-source NoSQL database system. It includes the following components:
