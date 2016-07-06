@@ -219,7 +219,7 @@ New Record:
 New collection:
 - If you attempt to add documents to a collection that does not exist, MongoDB will create the collection for you.
 
-Challenge:
+>Challenge:
 Create your own restaurants DB and insert your favorite restaurant into it.  Make sure you can see the new restaurant and the DB in your mongo console.
 
 <!-- 9:45 10 minutes -->
@@ -271,7 +271,7 @@ db.restaurants.find({"address.zipcode": 20001});
 
 >Note: that we can search for nested data, such as the `address.zipcode` by using a string as the key.
 
-Challenge:
+>Challenge:
 Search for matching restaurants by *all* the properties in your restaurant documents.
 
 <!-- 10:00 5 minutes -->
@@ -297,7 +297,7 @@ Verify:
 db.restaurants.find()
 ```
 
-Challenge:
+>Challenge:
 Update one of your restaurants and verify it has changed in the mongo console.
 
 <!--10:05 5 minutes -->
@@ -309,7 +309,7 @@ db.restaurants.remove({ name: "Cookies Corner" })
 
 > Note: this will remove all restaurants with the name `"Cookies Corner"`
 
-Challenge:
+>Challenge:
 Delete one of your restaurants and verify it has been removed in the mongo console.
 
 <!-- 10:10 5 minutes -->
@@ -323,7 +323,7 @@ db.dropDatabase()
 
 Drops the **current** database.
 
-Challenge:
+>Challenge:
 Drop your restaurants DB.  Make sure you can't see it anymore in the mongo console.
 
 ## Closing Thoughts
