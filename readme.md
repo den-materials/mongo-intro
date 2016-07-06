@@ -21,7 +21,7 @@ Market: DEN
 
 ## What are the objectives?
 *After this workshop, developers will be able to:*
-- **Set up** local mongo db server
+- **Set up** a local mongo db server
 - **Perform** CRUD operations on documents using mongo CLI
 
 ## Where should we be now?
