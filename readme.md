@@ -336,3 +336,7 @@ Drop your restaurants DB.  Make sure you can't see it anymore in the mongo conso
 - [CRUD Intro](http://docs.mongodb.org/manual/core/crud-introduction/)
 - [CRUD Commands](http://docs.mongodb.org/manual/reference/crud/)
 - [MongoDB's GitHub](https://github.com/mongodb/mongo)
+
+## Licensing
+All content is licensed under a CC­BY­NC­SA 4.0 license.
+All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
