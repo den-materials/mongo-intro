@@ -7,9 +7,9 @@ Market: DEN
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
-<!--9:00 10 minutes -->
+<!--9:30 10 minutes -->
 
-<!--Hook: So let's think back to GeoQuakes and all those earthquakes we had to parse.  How many did we get back?  So we only had to grab that data a few times to test.  What would happen if we wanted to grab that data 4,000 times a day?  How would you feel if I asked you for your GitHub link to the homework 4,000 times a day?  Raise your hand if that would piss you off.  OK, so instead of that, maybe we could just ask once, save it, and then check it whenever we need it.  OK, so I don't check your HW 4,000 times a day, but websites can check things much more than that.  We've talked about localStorage as a way to save things locally, but if we go to a different browser or computer, we lose that, and I certainly don't want to store several hundred earthquakes in my browser. This is where Databases come in.  And specifically, today we'll be looking at MongoDB. -->
+<!--Hook: So let's think back to OMDB and all those movies we had to parse.  How many did we get back?  So we only had to grab that data a few times to test.  What would happen if we wanted to grab that data 4,000 times a day?  How would you feel if I asked you for your GitHub link to the homework 4,000 times a day?  Raise your hand if that would piss you off.  OK, so instead of that, maybe we could just ask once, save it, and then check it whenever we need it.  OK, so I don't check your HW 4,000 times a day, but websites can check things much more than that.  We've talked about localStorage as a way to save things locally, but if we go to a different browser or computer, we lose that, and I certainly don't want to store several hundred movies in my browser. This is where Databases come in.  And specifically, today we'll be looking at MongoDB. -->
 
 # MongoDB
 
@@ -28,7 +28,7 @@ Market: DEN
 *Before this workshop, developers should already be able to:*
 - **Run** Node in the console
 
-<!--9:10 5 minutes -->
+<!--9:40 5 minutes -->
 
 ## Framing
 
@@ -39,7 +39,7 @@ Market: DEN
 
 > Later in the course we will learn about relational databases, which use join-tables & foreign keys to query our database in complex ways. NoSQL databases are an alternative that can be great for less complex databases. Because NoSQL databases are structured more simply, applications can read and write to them faster.
 
-<!-- 9:15 10 minutes -->
+<!-- 9:45 10 minutes -->
 
 ## Documents
 
@@ -102,7 +102,7 @@ In MongoDB, we often _embed_ related data in a single document, you'll see an ex
 
 The supporters of MongoDB highlight the lack of table joins as a performance advantage since joins are expensive in terms of computer processing.
 
-<!-- 9:25 10 minute -->
+<!-- 9:55 10 minute -->
 
 ## Installing, Creating a DB, and Inserting Documents
 
@@ -171,7 +171,7 @@ Common Mistake:
 `show dbs`
 > note we don't see restaurants listed. It isn't until we add a document to our database does it list the DB in `show dbs`
 
-<!--9:35 10 minutes -->
+<!--10:05 10 minutes -->
 ## Create a record
 
 ### Insert
@@ -222,7 +222,7 @@ New collection:
 >Challenge:
 Create your own restaurants DB and insert your favorite restaurant into it.  Make sure you can see the new restaurant and the DB in your mongo console.
 
-<!-- 9:45 10 minutes -->
+<!-- 10:15 10 minutes -->
 
 ### Exercise: Add a few more restaurants.
 
@@ -258,7 +258,7 @@ db.restaurants.insert([
 db.restaurants.count()
 ```
 
-<!-- 9:55 5 minutes -->
+<!-- 10:25 5 minutes -->
 
 ### Find by Conditions
 
@@ -274,7 +274,7 @@ db.restaurants.find({"address.zipcode": 20001});
 >Challenge:
 Search for matching restaurants by *all* the properties in your restaurant documents.
 
-<!-- 10:00 5 minutes -->
+<!-- 10:30 5 minutes -->
 
 ## Update/Delete
 
@@ -300,7 +300,7 @@ db.restaurants.find()
 >Challenge:
 Update one of your restaurants and verify it has changed in the mongo console.
 
-<!--10:05 5 minutes -->
+<!--10:35 5 minutes -->
 ### Delete a document
 
 ```js
@@ -312,7 +312,7 @@ db.restaurants.remove({ name: "Cookies Corner" })
 >Challenge:
 Delete one of your restaurants and verify it has been removed in the mongo console.
 
-<!-- 10:10 5 minutes -->
+<!-- 10:40 5 minutes -->
 
 ## Dropping a Database
 
@@ -326,9 +326,11 @@ Drops the **current** database.
 >Challenge:
 Drop your restaurants DB.  Make sure you can't see it anymore in the mongo console.
 
+<!-- 10:45 5 minutes -->
+
 ## Closing Thoughts
 - MongoDB is a popular open-source NoSQL database system. It includes the following components:
-  1.  mongod - The database process.
+  1. mongod - The database process.
   2. mongos - The sharding controller that works behind the scenes.
   3. mongo  - The database shell (uses interactive javascript).
 
