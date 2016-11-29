@@ -127,6 +127,8 @@ To start the database engine, type `mongod` in terminal.
 
 Press `control-c` to stop the engine.
 
+<!--9:51 actual -->
+
 <!--Half-mast-->
 
 #### Creating a Database and Inserting Documents
@@ -222,6 +224,8 @@ New Record:
 New collection:
 - If you attempt to add documents to a collection that does not exist, MongoDB will create the collection for you.
 
+<!--WOAH all of a sudden just TONS of questions.  We were ahead of time, and now we're slightly behind schedule. 10:18 -->
+
 <!--End half-mast -->
 
 >Challenge:
@@ -246,6 +250,8 @@ What step are we on?
 1. Create DB
 2. Use the appropriate DB
 3. **Insert multiple restaurants**
+
+<!--10:40 really -->
 
 <details><summary>An Example</summary>
 
@@ -343,7 +349,6 @@ Drop your restaurants DB.  Make sure you can't see it anymore in the mongo conso
 ## Closing Thoughts
 - MongoDB is a popular open-source NoSQL database system. It includes the following components:
   1. mongod - The database process.
-  2. mongos - The sharding controller that works behind the scenes.
   3. mongo  - The database shell (uses interactive javascript).
 
 ## Additional Resources
