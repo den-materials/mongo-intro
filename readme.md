@@ -5,9 +5,11 @@ Adapted By: Zeb Girouard
 Market: DEN
 -->
 
+<!--Would be ideal to finish at 10:50, but a lot of these sections are like 3,4 minutes (not 5) so blocks go to 10:55-->
+
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
-<!--9:30 10 minutes -->
+<!--9:35 10 minutes -->
 
 <!--Hook: So let's think back to OMDB and all those movies we had to parse.  How many did we get back?  So we only had to grab that data a few times to test.  What would happen if we wanted to grab that data 4,000 times a day?  How would you feel if I asked you for your GitHub link to the homework 4,000 times a day?  Raise your hand if that would piss you off.  OK, so instead of that, maybe we could just ask once, save it, and then check it whenever we need it.  OK, so I don't check your HW 4,000 times a day, but websites can check things much more than that.  We've talked about localStorage as a way to save things locally, but if we go to a different browser or computer, we lose that, and I certainly don't want to store several hundred movies in my browser. This is where Databases come in.  And specifically, today we'll be looking at MongoDB. -->
 
@@ -28,7 +30,7 @@ Market: DEN
 *Before this workshop, developers should already be able to:*
 - **Run** Node in the console
 
-<!--9:40 5 minutes -->
+<!--9:45 5 minutes -->
 
 ## Framing
 
@@ -39,7 +41,7 @@ Market: DEN
 
 > Later in the course we will learn about relational databases, which use join-tables & foreign keys to query our database in complex ways. NoSQL databases are an alternative that can be great for less complex databases. Because NoSQL databases are structured more simply, applications can read and write to them faster.
 
-<!-- 9:45 10 minutes -->
+<!-- 9:50 10 minutes -->
 
 ## Documents
 
@@ -100,9 +102,7 @@ MongoDB stores documents in collections.
 
 In MongoDB, we often _embed_ related data in a single document, you'll see an example of this later.
 
-MongoDB is famous for introducing a performance advantage over relational databases, like SQL.  This is because SQL and similar databases use a method called `join` a lot, which is computationally expensive.
-
-<!-- 9:55 10 minute -->
+<!-- 10:00 10 minute -->
 
 ## Installing, Creating a DB, and Inserting Documents
 
@@ -126,6 +126,8 @@ MongoDB by default will look for data in a folder named `/data/db`. We would hav
 To start the database engine, type `mongod` in terminal.
 
 Press `control-c` to stop the engine.
+
+<!--Half-mast-->
 
 #### Creating a Database and Inserting Documents
 
@@ -154,7 +156,7 @@ Also:
 
 In the mongo REPL we want to connect to create/connect to a database.
 
-We *want* to work with the `restaurants` database:
+We *want* to work with the `restaurant_db` database:
 
 ```js
 use restaurant_db
@@ -169,9 +171,10 @@ restaurant_db
 
 Common Mistake:
 `show dbs`
-> note we don't see restaurants listed. It isn't until we add a document to our database does it list the DB in `show dbs`
 
-<!--10:05 10 minutes -->
+>**Note:** we don't see `restaurant_db` listed. It isn't until we add a document to our database that it lists the DB in `show dbs`
+
+<!--10:10 10 minutes -->
 ## Create a record
 
 ### Insert
@@ -219,24 +222,32 @@ New Record:
 New collection:
 - If you attempt to add documents to a collection that does not exist, MongoDB will create the collection for you.
 
+<!--End half-mast -->
+
 >Challenge:
 Create your own restaurants DB and insert your favorite restaurant into it.  Make sure you can see the new restaurant and the DB in your mongo console.
 
-<!-- 10:15 10 minutes -->
+<!-- 10:20 10 minutes -->
 
 ### Exercise: Add a few more restaurants.
 
-ProTip: I recommend you construct your statements in your editor and copy/paste.  It will help you now & later. Can you insert multiple restaurants at one time?
+ProTip: I recommend you construct your statements in your editor.  It will help you now (with syntax highlighting/indenting) and later (you will need to write statementes in JS in future labs). Can you insert multiple restaurants at one time?
 
-Let's recreate the steps together:
+#### Re-cap
+
 Where are we now?
+
 ```
 db
 ```
 
+What step are we on?
+
 1. Create DB
 2. Use the appropriate DB
-3. Insert multiple restaurants
+3. **Insert multiple restaurants**
+
+<details><summary>An Example</summary>
 
 ```js
 db.restaurants.remove({});
@@ -258,7 +269,9 @@ db.restaurants.insert([
 db.restaurants.count()
 ```
 
-<!-- 10:25 5 minutes -->
+</details>
+
+<!-- 10:30 5 minutes -->
 
 ### Find by Conditions
 
@@ -274,11 +287,9 @@ db.restaurants.find({"address.zipcode": 20001});
 >Challenge:
 Search for matching restaurants by *all* the properties in your restaurant documents.
 
-<!-- 10:30 5 minutes -->
+<!-- 10:35 5 minutes -->
 
-## Update/Delete
-
-### You do:
+### Update a document:
 
 [Update](http://docs.mongodb.org/manual/core/write-operations-introduction/) a restaurant to have a new key-value par `{state: "DC"}`
 
@@ -300,7 +311,8 @@ db.restaurants.find()
 >Challenge:
 Update one of your restaurants and verify it has changed in the mongo console.
 
-<!--10:35 5 minutes -->
+<!--10:40 5 minutes -->
+
 ### Delete a document
 
 ```js
@@ -312,7 +324,7 @@ db.restaurants.remove({ name: "Cookies Corner" })
 >Challenge:
 Delete one of your restaurants and verify it has been removed in the mongo console.
 
-<!-- 10:40 5 minutes -->
+<!-- 10:45 5 minutes -->
 
 ## Dropping a Database
 
@@ -326,7 +338,7 @@ Drops the **current** database.
 >Challenge:
 Drop your restaurants DB.  Make sure you can't see it anymore in the mongo console.
 
-<!-- 10:45 5 minutes -->
+<!-- 10:50 5 minutes -->
 
 ## Closing Thoughts
 - MongoDB is a popular open-source NoSQL database system. It includes the following components:
