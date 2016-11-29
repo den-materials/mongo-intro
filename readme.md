@@ -100,7 +100,7 @@ MongoDB stores documents in collections.
 
 In MongoDB, we often _embed_ related data in a single document, you'll see an example of this later.
 
-The supporters of MongoDB highlight the lack of table joins as a performance advantage since joins are expensive in terms of computer processing.
+MongoDB is famous for introducing a performance advantage over relational databases, like SQL.  This is because SQL and similar databases use a method called `join` a lot, which is computationally expensive.
 
 <!-- 9:55 10 minute -->
 
