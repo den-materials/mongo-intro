@@ -45,9 +45,13 @@ Market: DEN
 
 ## Documents
 
-- A MongoDB database consists of _documents_ (you can also refer to them as records).
-- A _document_ in MongoDB is composed of _field_ and _value_ pairs.
-- Fields, aka keys, may store other documents, arrays, and arrays of documents as their values.
+A MongoDB database consists of _documents_ (you can also refer to them as records):
+![Mongo and it's parts](img/mongo.png)
+- A `document` in MongoDB is composed of _field_ and _value_ pairs. Fields, aka keys, may store other documents, arrays, and arrays of documents as their values.
+- A `collection` is just that - a collection of similar `documents`. For instance, a collection of cars, flowers, or users.
+- The `database` is the highest structural element of a our MongoDB. It can hold as many collections as you'd like. Generally, you'll use one database per site, containing one or more collections of all your different types of data.
+
+
 
 #### Data Format
 
@@ -70,11 +74,11 @@ A MongoDB _document_ is very much like JSON, except it is stored in the database
 
 _BSON_ basically extends _JSON_ with additional data types, such as __ObjectID__ and __Date__ shown above.
 
-#### The Document *_id*
+#### The Document _id
 
 The *_id* is a special field that represents the document's _primary key_ and will always be listed as the first field. It must be unique.
 
-We can explicitly set the *_id* like this:
+<!-- We can explicitly set the *_id* like this:
 
 ```js
 {
@@ -89,18 +93,20 @@ or this...
   _id: "ABC",
   name: "Suzy"
 }
-```
-However, it's more common to allow MongoDB to create it implicitly for us using its _ObjectID_ data type.
+``` 
+-->
+
+We can explicitly set the *_id*, but it's generally considered bad practice.  It's more common to allow MongoDB to create one for us, using its _ObjectID_ data type.
 
 #### Collections
 
 MongoDB stores documents in collections.
 
 - Collections are analogous to tables in relational databases, which are similar to spreadsheets.
-- Does **NOT** require its documents to have the same schema.
+- Mongo does **NOT** require its documents to have the same schema - each document can have varied keys.
 - Documents stored in a collection must have a unique `_id` field that acts as a primary key.
 
-In MongoDB, we often _embed_ related data in a single document, you'll see an example of this later.
+<!-- In MongoDB, we often _embed_ related data in a single document, you'll see an example of this later. -->
 
 <!-- 10:00 10 minute -->
 
@@ -108,7 +114,7 @@ In MongoDB, we often _embed_ related data in a single document, you'll see an ex
 
 #### Installation
 
-You may already have MongoDB installed on your system, lets check in terminal. Enter: `mongod` (note the lack of a "b" at the end").
+You may already have MongoDB installed on your system - lets check in terminal. Enter: `mongod` (note the lack of a "b" at the end").
 
 If you receive an error, lets use _Homebrew_ to install MongoDB:
 
@@ -133,9 +139,9 @@ Press `control-c` to stop the engine.
 
 #### Creating a Database and Inserting Documents
 
-MongoDB installs with a client app, a JavaScript-based shell, that allows us to interact with MongoDB directly.
+MongoDB installs with it's own CLI(Command Line Interface), a JavaScript-based shell that allows us to interact with MongoDB directly in our terminal.
 
-Start the app in terminal by typing `mongo`. If you got an error, make sure `mongod` is running in the background.
+Start the CLI by typing `mongo` in the terminal. If you got an error, make sure `mongod` is running in the background.
 
 The mongo interface will load and change the prompt will change to `>`.
 
@@ -156,9 +162,9 @@ Also:
 - `<tab>` key completion
 - `<up-arrow>` and the `<down-arrow>` for history.
 
-In the mongo REPL we want to connect to create/connect to a database.
+In the mongo CLI, we want to connect to create/connect to a database.
 
-We *want* to work with the `restaurant_db` database:
+Let's work with the `restaurant_db` database:
 
 ```js
 use restaurant_db
@@ -171,10 +177,10 @@ Verify:
 restaurant_db
 ```
 
-Common Mistake:
-`show dbs`
+Now what happens when you type `show dbs`?
 
->**Note:** we don't see `restaurant_db` listed. It isn't until we add a document to our database that it lists the DB in `show dbs`
+There's no restaurant DB listed! That's because **even though we're currently using it, our database doesn't truly exist until we add a document to it**. Mongo tends to work this way - by simply stating that something exists, it is created.
+![Magic!](https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif)
 
 <!--10:10 10 minutes -->
 ## Create a record
@@ -208,21 +214,18 @@ system.indexes
 > db.restaurants.find()
 ```
 
+You should see three fields we specified:
 - name
 - address
 - yelp
 
-What is surprising/unexpected?
+As well as one we didn't:
+- _id
 
-- where did restaurants come from?
-- `_id`?
-- [ObjectId](https://docs.mongodb.org/manual/reference/object-id/)
+Remember that Mongo adds an `_id` field to your document automatically if you don't specify one for it. If you're still mystified as to why or how, check out this documentation on [ObjectId](https://docs.mongodb.org/manual/reference/object-id/).
 
-New Record:
-- If the document passed to the insert() method does not contain the _id field, the mongo shell automatically adds the field to the document and sets the field’s value to a generated ObjectId.
-
-New collection:
-- If you attempt to add documents to a collection that does not exist, MongoDB will create the collection for you.
+>Fun fact about collections - If you attempt to add documents to a collection that does not exist, MongoDB will create the collection for you.
+![MORE MAGIC!](https://media.giphy.com/media/3o84U6421OOWegpQhq/giphy.gif)
 
 <!--WOAH all of a sudden just TONS of questions.  We were ahead of time, and now we're slightly behind schedule. 10:18 -->
 
