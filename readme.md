@@ -47,7 +47,7 @@ Market: DEN
 
 A MongoDB database consists of _documents_ (you can also refer to them as records):
 ![Mongo and it's parts](img/mongo.png)
-- A `document` in MongoDB is composed of _field_ and _value_ pairs. Fields, aka keys, may store other documents, arrays, and arrays of documents as their values.
+- A `document` in MongoDB is composed of _field_ and _value_ pairs. Fields, aka keys, may store other documents, arrays, and arrays of documents as their values. It looks just like a JS or JSON object.
 - A `collection` is just that - a collection of similar `documents`. For instance, a collection of cars, flowers, or users.
 - The `database` is the highest structural element of a our MongoDB. It can hold as many collections as you'd like. Generally, you'll use one database per site, containing one or more collections of all your different types of data.
 
@@ -141,7 +141,7 @@ Press `control-c` to stop the engine.
 
 MongoDB installs with it's own CLI(Command Line Interface), a JavaScript-based shell that allows us to interact with MongoDB directly in our terminal.
 
-Start the CLI by typing `mongo` in the terminal. If you got an error, make sure `mongod` is running in the background.
+Start the CLI by typing `mongo` in the terminal. If you got an error, make sure `mongod` is running in another terminal tab.
 
 The mongo interface will load and change the prompt will change to `>`.
 
@@ -180,6 +180,7 @@ restaurant_db
 Now what happens when you type `show dbs`?
 
 There's no restaurant DB listed! That's because **even though we're currently using it, our database doesn't truly exist until we add a document to it**. Mongo tends to work this way - by simply stating that something exists, it is created.
+
 ![Magic!](https://media.giphy.com/media/12NUbkX6p4xOO4/giphy.gif)
 
 <!--10:10 10 minutes -->
@@ -225,6 +226,7 @@ As well as one we didn't:
 Remember that Mongo adds an `_id` field to your document automatically if you don't specify one for it. If you're still mystified as to why or how, check out this documentation on [ObjectId](https://docs.mongodb.org/manual/reference/object-id/).
 
 >Fun fact about collections - If you attempt to add documents to a collection that does not exist, MongoDB will create the collection for you.
+
 ![MORE MAGIC!](https://media.giphy.com/media/3o84U6421OOWegpQhq/giphy.gif)
 
 <!--WOAH all of a sudden just TONS of questions.  We were ahead of time, and now we're slightly behind schedule. 10:18 -->
@@ -284,7 +286,7 @@ db.restaurants.count()
 
 ### Find by Conditions
 
-Key: Value pairs
+`Key: Value` Pairs
 
 ```js
 db.restaurants.find({name: "Cookies Corner"});
