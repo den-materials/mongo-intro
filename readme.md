@@ -17,7 +17,7 @@ Market: DEN
 
 ## Why is this important?
 *This workshop is important because:*
-- As of October 2016, MongoDB is the fourth most popular type of database management system, and the most popular for document stores.
+- As of Dec 2017, MongoDB is the fifth most popular type of database management system, and the most popular for document stores.
 - *aside*: [The top five](http://db-engines.com/en/ranking).
 - MongoDB uses a JSON-like data structure (called BSON or Binary JSON) so it integrates easily into JavaScript Applications
 
